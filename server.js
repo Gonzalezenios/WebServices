@@ -19,6 +19,6 @@ app.get("/visitas", (req, res) => {
 });
 
 let fyh = new Date().toLocaleString();
-app.get("/fyh", (req, res) => {
+app.get("/product", (req, res) => {
   res.send(`La fecha y hora actual es: ${fyh}`);
 });
