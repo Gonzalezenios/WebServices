@@ -11,7 +11,7 @@ const server = app.listen(PORT, () => {
 server.on("error", (error) => console.log(`Error: ${error.message}`));
 
 app.get("/", (req, res) => {
-  res.send(`<h1 style="color:blue;" >Welcome to express server!</h1>`);
+  res.send(`<div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/2A75RyXVzzSI2bx4Gj" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p>/product</p><p><`);
 });
 
 let product = new Container('./products.txt');
@@ -23,5 +23,9 @@ let product = new Container('./products.txt');
         }
     }
 app.get("/product", (req, res) => {
+  res.send(`Estos son todos los productos disponibles: ${product}`);
+});
+
+app.get("/randomProduct", (req, res) => {
   res.send(`Estos son todos los productos disponibles: ${product}`);
 });
