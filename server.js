@@ -18,7 +18,7 @@ app.get("/visitas", (req, res) => {
   res.send(`La cantidad de visitas es: ${++visitas}`);
 });
 
-let fyh = new Date().toLocaleString();
+
 app.get("/product", (req, res) => {
-  res.send(`La fecha y hora actual es: ${fyh}`);
+  res.send(`Estos son todos los productos disponibles: ${fyh}`);
 });
