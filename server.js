@@ -15,12 +15,23 @@ app.get("/", (req, res) => {
   res.send(`<div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/2A75RyXVzzSI2bx4Gj" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p>/product</p><p>/randomProduct</p>`);
 });
 
-app.get("/product", (req, res) => {
-  contVisitas++;
-  const data = fs.readFile()
-  res.send(`Estos son todos los productos disponibles: ${product}`);
+let countVisits = 0;
+
+app.get("/products", (req, res) => {
+  countVisits++;
+  const data = fs.readFileSync(`./products.txt`, 'utf-8');
+  const arrayProducts = JSON.parse(data);
+  res.json({
+    product: arrayProducts,
+    size: arrayProducts.length
+  });
 });
 
 app.get("/randomProduct", (req, res) => {
-  res.send(`Estos son todos los productos disponibles: ${product}`);
+  countVisits++;
+  const data = fs.readFileSync(`./products.txt`, 'utf-8');
+  const arrayProducts = JSON.parse(data);
+  let randomNumber = Math.floor(Math.random() * arrayProducts.length);
+  let product = arrayProducts[randomNumber];
+  res.json({ product: product });
 });
