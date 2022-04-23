@@ -12,7 +12,7 @@ const server = app.listen(PORT, () => {
 server.on("error", (error) => console.log(`Error: ${error.message}`));
 
 app.get("/", (req, res) => {
-  res.send(`<div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/2A75RyXVzzSI2bx4Gj" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p>/product</p><p>/randomProduct</p>`);
+  res.send(`<div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/2A75RyXVzzSI2bx4Gj" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p>/products</p><p>/randomProduct</p>`);
 });
 
 let countVisits = 0;
