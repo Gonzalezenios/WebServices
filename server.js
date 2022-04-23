@@ -1,4 +1,5 @@
 const express = require("express");
+const Container = require('./container.js')
 
 const app = express();
 
@@ -13,12 +14,14 @@ app.get("/", (req, res) => {
   res.send(`<h1 style="color:blue;" >Welcome to express server!</h1>`);
 });
 
-let visitas = 0;
-app.get("/visitas", (req, res) => {
-  res.send(`La cantidad de visitas es: ${++visitas}`);
-});
+let product = new Container('./products.txt');
 
-
+    console.log(product)
+    async function createProducts(products) {
+        for (const prod of products) {
+            await product.save(prod);
+        }
+    }
 app.get("/product", (req, res) => {
-  res.send(`Estos son todos los productos disponibles: ${fyh}`);
+  res.send(`Estos son todos los productos disponibles: ${product}`);
 });
